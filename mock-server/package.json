@@ -1,0 +1,18 @@
+{
+  "name": "project-adele-mock-server",
+  "version": "0.0.0",
+  "description": "Project Adele Mock Server",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": "Balázs Szögi",
+  "private": true,
+  "license": "BSD",
+  "dependencies": {
+    "mockserver": "latest"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

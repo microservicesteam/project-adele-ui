@@ -3,8 +3,10 @@ import styles from './_App.scss';
 import React from 'react';
 import AppActions from '../../actions/AppActions';
 import ItemsStore from '../../stores/ItemsStore';
+import Menu from '../Menu/Menu';
 import Body from '../Body/Body';
 import Footer from '../Footer/Footer';
+
 
 function getAppState() {
   return {
@@ -32,7 +34,11 @@ export default class App extends React.Component {
   render() {
     return (
       <div className={styles.app}>
-        <Body items={this.state.items} />
+        <div className={styles.header}>
+          <h1 className={styles.title}>Project Adele</h1>
+          <Menu items={this.state.items} />
+        </div>
+        <Body/>
         <Footer />
       </div>
     );
