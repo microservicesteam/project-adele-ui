@@ -1,8 +1,8 @@
+// NOT WORKING
+
 var should = require('should');
 var io = require('socket.io-client'),
     server = require('../server');
-
-
 
 var socketURL = 'http://localhost:3000';
 

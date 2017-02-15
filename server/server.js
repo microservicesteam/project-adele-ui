@@ -12,11 +12,16 @@ var debug = false;
 
 debug && console.log("Server Started");
 io.sockets.on('connection', function (socket) {
-  debug && console.log("New Connection");
-
-  socket.on('message', function(msg){
-    debug && console.log("New msg");
-    io.sockets.emit('message', msg);
-  });
+    debug && console.log("New Connection");
+    io.sockets.emit('message', [ {
+      "id": 1,
+      "label": "Adele New York"
+    }, {
+      "id": 2,
+      "label": "Adele London"
+    }, {
+      "id": 3,
+      "label": "Adele Budapest"
+    } ]);
 
 });

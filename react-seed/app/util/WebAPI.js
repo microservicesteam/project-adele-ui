@@ -1,7 +1,15 @@
-var request = require('superagent');
+var request = require('superagent'),
+  io = require('socket.io-client');
+
+var socketURL = 'http://localhost:5000';
+
+var options ={
+    transports: ['websocket'],
+      'force new connection': true
+};
 
 export default {
-  getItems() {
+  getItemsREST() {
     return new Promise((resolve, reject) => {
       request
           .get("http://localhost:9001/events")
@@ -15,6 +23,14 @@ export default {
               resolve(JSON.parse(response.text));
             }
           });
+    });
+  },
+  getItems() {
+    return new Promise((resolve, reject) => {
+        var client = io.connect(socketURL, options);
+        client.on('message', function(msg){
+          resolve(msg);
+        });
     });
   }
 };
