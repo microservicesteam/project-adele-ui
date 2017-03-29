@@ -1,4 +1,5 @@
 import AppDispatcher from '../dispatcher/AppDispatcher';
+import WebAPI from '../util/WebAPI';
 import EventWebAPI from '../util/EventWebAPI';
 
 import {
