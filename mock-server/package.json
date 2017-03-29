@@ -1,7 +1,7 @@
 {
-  "name": "project-adele-mock-server",
+  "name": "project-adele-ui-server",
   "version": "0.0.0",
-  "description": "Project Adele Mock Server",
+  "description": "Project Adele UI Mock Server",
   "main": "server.js",
   "directories": {
     "test": "test"
@@ -10,9 +10,14 @@
   "private": true,
   "license": "BSD",
   "dependencies": {
-    "mockserver": "latest"
+    "express": "latest",
+    "socket.io": "latest",
+    "mocha": "latest",
+    "should": "latest",
+     "mockserver": "latest"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "mocha -R spec"
   }
 }
