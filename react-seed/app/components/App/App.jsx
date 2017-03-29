@@ -38,7 +38,7 @@ export default class App extends React.Component {
           <h1 className={styles.title}>Project Adele</h1>
           <Menu items={this.state.items} />
         </div>
-        <Body/>
+        <Body items={this.state.items} />
         <Footer />
       </div>
     );

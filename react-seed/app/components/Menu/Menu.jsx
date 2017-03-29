@@ -8,11 +8,11 @@ export default class Menu extends Component {
 
   static defaultProps = {
     items: []
-  };
+  }
 
   static propTypes = {
     items: PropTypes.array.isRequired
-  };
+  }
 
   render() {
     return (
