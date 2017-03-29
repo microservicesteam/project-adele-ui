@@ -5,10 +5,11 @@ Access-Control-Allow-Headers: X-Requested-With
 
 [ {
   "id": 1,
-  "name": "Adele",
-  "dateTime": "2017-06-23T18:30:00.000Z",
-  "status": "OPEN",
-  "venue": {
-    "shortName": "Papp László Budapest Sportaréna "
-  }
+  "label": "Adele New York"
+}, {
+  "id": 2,
+  "label": "Adele London"
+}, {
+  "id": 3,
+  "label": "Adele Budapest"
 } ]
