@@ -12,7 +12,7 @@ export default {
   getItemsREST() {
     return new Promise((resolve, reject) => {
       request
-          .get("http://localhost:9001/events")
+          .get("http://localhost:9000/events")
           .end(function (error, response) {
             if (error) {
               reject();
