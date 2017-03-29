@@ -9,6 +9,21 @@ Access-Control-Allow-Headers: X-Requested-With
   "dateTime": "2017-06-23T18:30:00.000Z",
   "status": "OPEN",
   "venue": {
-    "shortName": "Papp László Budapest Sportaréna "
+    "shortName": "Papp László Budapest Sportaréna"
   }
+}, {
+  "id": 2,
+  "name": "Eddie Izzard: Force Majure",
+  "dateTime": "2017-06-28T19:30:00.000Z",
+  "status": "OPEN",
+  "venue": {
+    "shortName": "Budapest Kongresszusi Központ"
+  }
+}, {
+  "id": 3,
+  "name": "Foo Fighters",
+  "dateTime": "2017-06-29T19:30:00.000Z",
+  "status": "OPEN",
+  "venue": {
+      "shortName": "Papp László Budapest Sportaréna"  }
 } ]
