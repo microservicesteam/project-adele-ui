@@ -6,7 +6,7 @@ export default class Body extends React.Component {
   render() {
     return (
       <div>
-        <Events events={this.props.items} />
+        <Events events={this.props.events} />
       </div>
     );
   }

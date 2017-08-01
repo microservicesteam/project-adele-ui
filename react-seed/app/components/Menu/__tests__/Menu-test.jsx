@@ -8,9 +8,9 @@ describe('Menu', () => {
 
   let { TestUtils } = React.addons;
 
-  let menuItems = [
-    { id: 1, label: 'Option 1' },
-    { id: 2, label: 'Option 2' }
+  let events = [
+    { id: 1, name: 'Option 1' },
+    { id: 2, name: 'Option 2' }
   ];
 
   describe('Rendering', () => {
@@ -19,7 +19,7 @@ describe('Menu', () => {
     class MockedMenuItem extends MenuItem {
       render() {
         return (
-          <li className={'mocked-menu-item'}>{this.props.item.label}</li>
+          <li className={'mocked-menu-item'}>{this.props.event.name}</li>
         );
       }
     }
@@ -28,7 +28,7 @@ describe('Menu', () => {
     Menu.__Rewire__('MenuItem', MockedMenuItem);
 
     let menu = TestUtils.renderIntoDocument(
-      <Menu items={menuItems} />
+      <Menu events={events} />
     );
     let menuElem = React.findDOMNode(menu);
     let items = menuElem.querySelectorAll('li');
@@ -39,7 +39,7 @@ describe('Menu', () => {
 
     it('Should render the menu item labels', () => {
       Array.prototype.forEach.call(items, (item, i) => {
-        expect(item.textContent.trim()).to.equal(menuItems[i].label);
+        expect(item.textContent.trim()).to.equal(events[i].name);
       });
     });
 
@@ -64,7 +64,7 @@ describe('Menu', () => {
       Menu.__Rewire__('MenuItem', MockedMenuItemWithClickHandler);
 
       let menu = TestUtils.renderIntoDocument(
-        <Menu items={menuItems} />
+        <Menu events={events} />
       );
       let menuElem = React.findDOMNode(menu);
       let items = menuElem.querySelectorAll('li');

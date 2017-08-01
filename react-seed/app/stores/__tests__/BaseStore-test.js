@@ -2,17 +2,17 @@ import 'babel-core/polyfill';
 import BaseStore from '../BaseStore.js';
 import { expect } from 'chai';
 
-const ITEMS_UPDATED = 'ITEMS_UPDATED';
+const EVENTS_UPDATED = 'EVENTS_UPDATED';
 
 class TestStore extends BaseStore {
   emitChange() {
-    this.emit(ITEMS_UPDATED);
+    this.emit(EVENTS_UPDATED);
   }
   addChangeListener(callback) {
-    this.on(ITEMS_UPDATED, callback);
+    this.on(EVENTS_UPDATED, callback);
   }
   removeChangeListener(callback) {
-    this.removeListener(ITEMS_UPDATED, callback);
+    this.removeListener(EVENTS_UPDATED, callback);
   }
 }
 

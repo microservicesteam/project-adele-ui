@@ -5,19 +5,19 @@ let { Component, PropTypes } = React;
 export default class MenuItem extends Component {
 
   static propTypes = {
-    item: PropTypes.object.isRequired
+    event: PropTypes.object.isRequired
   };
 
   onItemClick = (e) => {
     e.preventDefault();
-    window.alert('You clicked ' + this.props.item.label);
+    window.alert('You clicked ' + this.props.event.name);
   }
 
   render() {
     return (
-      <li key={'menu-item-' + this.props.item.id}>
+      <li key={'menu-item-' + this.props.event.id}>
         <a href="#" onClick={this.onItemClick}>
-          {this.props.item.label}
+          {this.props.event.name}
         </a>
       </li>
     );

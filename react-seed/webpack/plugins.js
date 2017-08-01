@@ -21,8 +21,9 @@ if (DEBUG) {
     new ExtractTextPlugin(cssBundle, {
       allChunks: true
     }),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.DedupePlugin(),
+    // TODO enable when no need for pretty print
+    // new webpack.optimize.UglifyJsPlugin({minimize: false}),
+    // new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')

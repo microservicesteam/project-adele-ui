@@ -1,6 +1,6 @@
 var util = require('util');
 var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
+var webpackDevServer = require('webpack-dev-server');
 var opn = require('opn');
 var pkg = require('./package.json');
 
@@ -10,7 +10,7 @@ var host = pkg.config.devHost;
 var configPath = process.argv[2] || './webpack/config';
 var config = require(configPath);
 
-var server = new WebpackDevServer(
+var server = new webpackDevServer(
   webpack(config),
   config.devServer
 );

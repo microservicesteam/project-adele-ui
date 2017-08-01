@@ -7,18 +7,18 @@ let { Component, PropTypes } = React;
 export default class Menu extends Component {
 
   static defaultProps = {
-    items: []
+    events: []
   }
 
   static propTypes = {
-    items: PropTypes.array.isRequired
+    events: PropTypes.array.isRequired
   }
 
   render() {
     return (
       <ul className={styles.menu}>
-        {this.props.items.map((item) => {
-          return (<MenuItem item={item} />);
+        {this.props.events.map((event) => {
+          return (<MenuItem event={event} />);
         }, this)}
       </ul>
     );
