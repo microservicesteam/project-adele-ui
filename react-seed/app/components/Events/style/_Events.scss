@@ -2,15 +2,25 @@
     list-style-type: none;
 }
 
-img {
-    float: left;
-    margin-right: 10px;
-    clear:both;
+.event_card {
+    display:inline-block;
+    margin-right: 5%;
+    max-width: 30%;
+    clear: both;
+    margin-bottom: 50px;
+}
+
+.event_card:nth-child(3n+3) {
+    margin-right: 0;
+}
+
+.event_card_img {
+    width: 100%;
+    height: 100%;
 }
 
 .description {
     margin-left: 0px;
     overflow:auto;
     display:block;
-    
 }

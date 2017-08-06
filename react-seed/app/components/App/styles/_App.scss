@@ -2,6 +2,8 @@
 
 .app {
   font-size: inherit;
+  max-width: 1280px;
+  margin: auto;
   @include my-padding-mixin(20px);
 }
 

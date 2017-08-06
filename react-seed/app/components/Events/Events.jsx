@@ -1,6 +1,6 @@
-import styles from './style/_Events.scss';
-import React from 'react';
-import EventCard from './EventCard';
+import styles from "./style/_Events.scss";
+import React from "react";
+import EventCard from "./EventCard";
 
 let { Component, PropTypes } = React;
 
@@ -16,11 +16,11 @@ export default class Events extends Component {
 
   render() {
     return (
-      <ul className={styles.events_list}>
+      <div className={styles.events_list}>
         {this.props.events.map((event) => {
-          return (<EventCard event={event} />);
+          return (<EventCard event={event}/>);
         }, this)}
-      </ul>
+      </div>
     );
   }
 }

@@ -1,4 +1,4 @@
-import styles from "./_App.scss";
+import styles from "./styles/_App.scss";
 
 import React from "react";
 import AppActions from "../../actions/AppActions";

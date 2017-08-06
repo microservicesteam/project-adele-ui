@@ -1,4 +1,4 @@
-import styles from './_Body.scss';
+import styles from './style/_Body.scss';
 import React from 'react';
 import Events from '../Events/Events';
 
