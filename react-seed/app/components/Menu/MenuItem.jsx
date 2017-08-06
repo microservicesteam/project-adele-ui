@@ -1,17 +1,12 @@
-import React from 'react';
+import React from "react";
+import PropTypes from "prop-types";
 
-let { Component, PropTypes } = React;
-
-export default class MenuItem extends Component {
-
-  static propTypes = {
-    event: PropTypes.object.isRequired
-  };
+export default class MenuItem extends React.Component {
 
   onItemClick = (e) => {
     e.preventDefault();
     window.alert('You clicked ' + this.props.event.name);
-  }
+  };
 
   render() {
     return (
@@ -23,3 +18,7 @@ export default class MenuItem extends Component {
     );
   }
 }
+
+MenuItem.propTypes = {
+  event: PropTypes.object.isRequired
+};

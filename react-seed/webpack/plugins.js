@@ -26,9 +26,10 @@ if (DEBUG) {
     // new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('test') // TODO find out how to switch this automatically
+        NODE_ENV: JSON.stringify('development') // TODO find out how to switch this automatically
       }
     }),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   );
 }

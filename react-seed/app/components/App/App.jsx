@@ -1,12 +1,11 @@
 import styles from "./styles/_App.scss";
-
 import React from "react";
+import {BrowserRouter, Route} from "react-router-dom";
 import AppActions from "../../actions/AppActions";
 import EventStore from "../../stores/EventStore";
 import Menu from "../Menu/Menu";
-import Body from "../Body/Body";
+import Home from "../Home/Home";
 import Footer from "../Footer/Footer";
-
 
 function getAppState() {
   return {
@@ -33,14 +32,16 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className={styles.app}>
-        <div className={styles.header}>
-          <h1 className={styles.title}>Project Adele</h1>
-          <Menu events={this.state.events}/>
+      <BrowserRouter>
+        <div className={styles.app}>
+          <div className={styles.header}>
+            <h1 className={styles.title}>Project Adele</h1>
+            <Menu events={this.state.events}/>
+          </div>
+          <Route exact path="/" component={Home} />
+          <Footer />
         </div>
-        <Body events={this.state.events}/>
-        <Footer />
-      </div>
+      </BrowserRouter>
     );
   }
 }

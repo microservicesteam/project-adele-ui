@@ -1,18 +1,9 @@
 import styles from "./style/_Events.scss";
 import React from "react";
+import PropTypes from "prop-types";
 import EventCard from "./EventCard";
 
-let { Component, PropTypes } = React;
-
-export default class Events extends Component {
-
-  static defaultProps = {
-    events: []
-  }
-
-  static propTypes = {
-    events: PropTypes.array.isRequired
-  }
+export default class Events extends React.Component {
 
   render() {
     return (
@@ -24,3 +15,7 @@ export default class Events extends Component {
     );
   }
 }
+
+Events.propTypes = {
+  events: PropTypes.array.isRequired
+};

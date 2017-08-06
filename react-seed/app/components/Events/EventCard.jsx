@@ -1,18 +1,13 @@
-import styles from './style/_Events.scss';
-import React from 'react';
+import styles from "./style/_Events.scss";
+import React from "react";
+import PropTypes from "prop-types";
 
-let { Component, PropTypes } = React;
-
-export default class EventCard extends Component {
-
-  static propTypes = {
-    event: PropTypes.object.isRequired
-  };
+export default class EventCard extends React.Component {
 
   onEventCardClick = (e) => {
     console.log("clicked");
     e.preventDefault();
-  }
+  };
 
   render() {
     return (
@@ -34,3 +29,7 @@ export default class EventCard extends Component {
     );
   }
 }
+
+EventCard.propTypes = {
+  event: PropTypes.any.isRequired
+};

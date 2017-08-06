@@ -1,26 +1,21 @@
-import styles from './_Menu.scss';
-import React from 'react';
-import MenuItem from './MenuItem';
+import styles from "./style/_Menu.scss";
+import React from "react";
+import PropTypes from "prop-types";
+import MenuItem from "./MenuItem";
 
-let { Component, PropTypes } = React;
-
-export default class Menu extends Component {
-
-  static defaultProps = {
-    events: []
-  }
-
-  static propTypes = {
-    events: PropTypes.array.isRequired
-  }
+export default class Menu extends React.Component {
 
   render() {
     return (
       <ul className={styles.menu}>
         {this.props.events.map((event) => {
-          return (<MenuItem event={event} />);
+          return (<MenuItem event={event}/>);
         }, this)}
       </ul>
     );
   }
 }
+
+Menu.propTypes = {
+  events: PropTypes.array.isRequired
+};

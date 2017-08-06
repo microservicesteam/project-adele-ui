@@ -18,7 +18,7 @@ Access-Control-Allow-Headers: X-Requested-With
   },
   {
     "id": 2,
-    "name": "Eddie Izzard: Force Majure",
+    "name": "Eddie Izzard: Force Majeure",
     "dateTime": "2017-06-28T19:30:00.000Z",
     "status": "OPEN",
     "venue": {
