@@ -5,7 +5,7 @@ import Events from '../Events/Events';
 export default class Body extends React.Component {
   render() {
     return (
-      <div>
+      <div className={styles.body}>
         <Events events={this.props.events} />
       </div>
     );
