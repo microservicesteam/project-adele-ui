@@ -6,7 +6,17 @@ import {
   EVENTS_GET_SUCCESS
 } from '../constants/AppConstants';
 
-class EventsStore extends BaseStore {
+class EventStore extends BaseStore {
+
+  find(id) {
+    var result = null;
+    this.getAll().forEach(function (event) {
+      if (parseInt(id) === event.id) {
+        result = event;
+      }
+    });
+    return result;
+  }
 
   emitChange() {
     this.emit(EVENTS_UPDATED);
@@ -21,7 +31,7 @@ class EventsStore extends BaseStore {
   }
 }
 
-let store = new EventsStore();
+let store = new EventStore();
 
 AppDispatcher.register((action) => {
   switch(action.actionType) {

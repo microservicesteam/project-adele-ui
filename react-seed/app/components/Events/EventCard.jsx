@@ -1,6 +1,7 @@
 import styles from "./style/_Events.scss";
 import React from "react";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 
 export default class EventCard extends React.Component {
 
@@ -17,9 +18,7 @@ export default class EventCard extends React.Component {
             <img className={styles.event_card_img} src={this.props.event.accessories.eventCardImg} />
           </div>
           <div>
-            <a className='event-title' href="#" onClick={this.onEventCardClick}>
-              {this.props.event.name}
-            </a>
+            <Link to={`/booking/${this.props.event.id}`}>{this.props.event.name}</Link>
           </div>
           <div className='description'>
             Lorem ipsum dolor sit amet, ius movet ludus prompta at, vis ex nostro corrumpit prodesset, vix sonet ornatus meliore ne. Ius no laudem epicurei interesset, esse mollis accommodare qui ei.

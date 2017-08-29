@@ -9,7 +9,7 @@ export default class Events extends React.Component {
     return (
       <div className={styles.events_list}>
         {this.props.events.map((event) => {
-          return (<EventCard event={event}/>);
+          return (<EventCard key={event.id} event={event}/>);
         }, this)}
       </div>
     );

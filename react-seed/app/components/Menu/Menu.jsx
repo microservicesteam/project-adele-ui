@@ -9,7 +9,7 @@ export default class Menu extends React.Component {
     return (
       <ul className={styles.menu}>
         {this.props.events.map((event) => {
-          return (<MenuItem event={event}/>);
+          return (<MenuItem key={event.id} event={event}/>);
         }, this)}
       </ul>
     );

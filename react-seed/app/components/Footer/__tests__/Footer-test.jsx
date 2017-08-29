@@ -1,8 +1,8 @@
-import React from 'react/addons';
+import ReactDOM from 'react-dom';
 import Footer from '../Footer.jsx';
 import { expect } from 'chai';
 
-let { TestUtils } = React.addons;
+let { TestUtils } = ReactDOM;
 
 describe('Footer', () => {
   it('Should have the correct footer element', () => {
