@@ -1,22 +1,47 @@
 import styles from "./style/_Booking.scss";
 import React from "react";
-import PropTypes from "prop-types";
+import AppActions from "../../actions/AppActions";
+import EventStore from "../../stores/EventStore";
 
 export default class Booking extends React.Component {
 
+  constructor() {
+    super();
+    this.state = {
+      event: EventStore.getAll()
+    };
+  }
+
+  componentWillMount() {
+    EventStore.addChangeListener(this.onChange);
+    AppActions.getEvents();
+  }
+
+  componentWillUnmount() {
+    EventStore.removeChangeListener(this.onChange);
+  }
+
+  onChange = () => {
+    this.setState({
+      events: EventStore.getAll()
+    })
+  };
+
   render() {
+    var event = EventStore.find(this.props.match.params.eventId);
+
+    if (event == null) {
+      return (<div className={styles.booking}></div>);
+    }
+
     return (
       <div className={styles.booking}>
-        <div>{this.props.event.id}</div>
-        <div>{this.props.event.name}</div>
-        <div>{this.props.event.dateTime}</div>
-        <div>{this.props.event.status}</div>
-        <div>{this.props.event.venue.shortName}</div>
+        <div>{event.id}</div>
+        <div>{event.name}</div>
+        <div>{event.dateTime}</div>
+        <div>{event.status}</div>
+        <div>{event.venue.shortName}</div>
       </div>
     );
   }
 }
-
-Booking.propTypes = {
-  event: PropTypes.object.isRequired
-};
