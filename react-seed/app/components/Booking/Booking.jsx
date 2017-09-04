@@ -40,7 +40,6 @@ export default class Booking extends React.Component {
         <div>{event.name}</div>
         <div>{event.dateTime}</div>
         <div>{event.status}</div>
-        <div>{event.venue.shortName}</div>
       </div>
     );
   }

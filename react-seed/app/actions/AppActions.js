@@ -5,10 +5,10 @@ import {EVENTS_GET_ERROR, EVENTS_GET_SUCCESS} from "../constants/AppConstants";
 export default {
   getEvents() {
     EventWebAPI.getEvents()
-    .then((events) => {
+    .then((response) => {
       AppDispatcher.dispatch({
         actionType: EVENTS_GET_SUCCESS,
-        events: events
+        events: response._embedded.events
       });
     })
     .catch(() => {

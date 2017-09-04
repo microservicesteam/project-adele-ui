@@ -5,23 +5,18 @@ import {Link} from "react-router-dom";
 
 export default class EventCard extends React.Component {
 
-  onEventCardClick = (e) => {
-    console.log("clicked");
-    e.preventDefault();
-  };
-
   render() {
     return (
       <div key={'event-card-'} className={styles.event_card}>
         <div>
           <div>
-            <img className={styles.event_card_img} src={this.props.event.accessories.eventCardImg} />
+            <img className={styles.event_card_img} src={require("../../assets/event" + this.props.event.id + ".jpg")} />
           </div>
           <div>
             <Link to={`/booking/${this.props.event.id}`}>{this.props.event.name}</Link>
           </div>
           <div className='description'>
-            Lorem ipsum dolor sit amet, ius movet ludus prompta at, vis ex nostro corrumpit prodesset, vix sonet ornatus meliore ne. Ius no laudem epicurei interesset, esse mollis accommodare qui ei.
+            {this.props.event.description}
           </div>
         </div>
       </div>

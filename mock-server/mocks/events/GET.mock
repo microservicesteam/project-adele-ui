@@ -3,53 +3,56 @@ Content-Type: application/json; charset=utf-8
 Access-Control-Allow-Origin: http://localhost:8000,
 Access-Control-Allow-Headers: X-Requested-With
 
-[
-  {
-    "id": 1,
-    "name": "Adele",
-    "dateTime": "2017-06-23T18:30:00.000Z",
-    "status": "OPEN",
-    "venue": {
-      "shortName": "Papp László Budapest Sportaréna"
+{
+  "_embedded" : {
+    "events" : [ {
+      "id": 1,
+      "name" : "Adele",
+      "description" : "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur non augue et nisi porttitor pretium. Mauris vel neque vitae orci luctus aliquet. Nulla facilisi. Donec in mi.",
+      "status" : "OPEN",
+      "dateTime" : "2017-08-30T21:27:07.997",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/rs/api/events/1"
+        },
+        "eventDo" : {
+          "href" : "http://localhost:8080/rs/api/events/1"
+        },
+        "venue" : {
+          "href" : "http://localhost:8080/rs/api/events/1/venue"
+        }
+      }
+    }, {
+      "id": 2,
+      "name" : "Tiesto",
+      "description" : "Curabitur semper massa quis diam. Ut dignissim elit at nisi. Mauris nec ipsum. Nunc ac quam. Donec in diam. Phasellus tempus scelerisque justo.",
+      "status" : "CLOSED",
+      "dateTime" : "2017-08-30T21:27:08.029",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/rs/api/events/2"
+        },
+        "eventDo" : {
+          "href" : "http://localhost:8080/rs/api/events/2"
+        },
+        "venue" : {
+          "href" : "http://localhost:8080/rs/api/events/2/venue"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/rs/api/events"
     },
-    "accessories": {
-      "eventCardImg": "https://c.tribune.com.pk/2016/12/1277539-adele-1482923307-555-640x480.jpg"
+    "profile" : {
+      "href" : "http://localhost:8080/rs/api/profile/events"
     }
   },
-  {
-    "id": 2,
-    "name": "Eddie Izzard: Force Majeure",
-    "dateTime": "2017-06-28T19:30:00.000Z",
-    "status": "OPEN",
-    "venue": {
-      "shortName": "Budapest Kongresszusi Központ"
-    },
-    "accessories": {
-      "eventCardImg": "http://www.barcelona-metropolitan.com/downloads/23011/download/Eddie-Izzard.jpg?cb=901892712d9019cb539631e48e34316a&w=640"
-    }
-  },
-  {
-    "id": 3,
-    "name": "Foo Fighters",
-    "dateTime": "2017-06-29T19:30:00.000Z",
-    "status": "OPEN",
-    "venue": {
-      "shortName": "Papp László Budapest Sportaréna"
-    },
-    "accessories": {
-      "eventCardImg": "http://static.stereogum.com/uploads/2016/03/Foo-Fighters-640x480.jpg"
-    }
-  },
-  {
-    "id": 4,
-    "name": "Tiesto",
-    "dateTime": "2017-08-29T20:30:00.000Z",
-    "status": "OPEN",
-    "venue": {
-      "shortName": "Papp László Budapest Sportaréna"
-    },
-    "accessories": {
-      "eventCardImg": "http://wpmedia.calgaryherald.com/2015/08/dj-tiesto-courtesy-jordan-lloyd.jpg?w=640"
-    }
+  "page" : {
+    "size" : 20,
+    "totalElements" : 2,
+    "totalPages" : 1,
+    "number" : 0
   }
-]
+}

@@ -1,0 +1,22 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: http://localhost:8000,
+Access-Control-Allow-Headers: X-Requested-With
+
+{
+  "name" : "Init test event",
+  "description" : "Lorem ipsum dolor met",
+  "status" : "OPEN",
+  "dateTime" : "2017-08-30T21:27:07.997",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/rs/api/events/1"
+    },
+    "eventDo" : {
+      "href" : "http://localhost:8080/rs/api/events/1"
+    },
+    "venue" : {
+      "href" : "http://localhost:8080/rs/api/events/1/venue"
+    }
+  }
+}

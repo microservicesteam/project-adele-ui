@@ -1,0 +1,23 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: http://localhost:8000,
+Access-Control-Allow-Headers: X-Requested-With
+
+{
+  "address" : "Test venue address",
+  "coordinates" : {
+    "latitude" : 1.0,
+    "longitude" : 2.1
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/rs/api/venues/1"
+    },
+    "venueDo" : {
+      "href" : "http://localhost:8080/rs/api/venues/1"
+    },
+    "sectors" : {
+      "href" : "http://localhost:8080/rs/api/venues/1/sectors"
+    }
+  }
+}

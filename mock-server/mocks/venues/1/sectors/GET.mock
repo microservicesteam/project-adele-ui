@@ -1,0 +1,30 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: http://localhost:8000,
+Access-Control-Allow-Headers: X-Requested-With
+
+{
+  "_embedded" : {
+    "sectors" : [ {
+      "capacity" : 5,
+      "price" : {
+        "amount" : 1500.00,
+        "currency" : "HUF"
+      },
+      "positions" : [ 1, 2, 3, 4, 5 ],
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/rs/api/sectors/1"
+        },
+        "sectorDo" : {
+          "href" : "http://localhost:8080/rs/api/sectors/1"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/rs/api/venues/1/sectors"
+    }
+  }
+}
