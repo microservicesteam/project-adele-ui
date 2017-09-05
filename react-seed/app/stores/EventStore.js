@@ -8,16 +8,6 @@ import {
 
 class EventStore extends BaseStore {
 
-  find(id) {
-    var result = null;
-    this.getAll().forEach(function (event) {
-      if (parseInt(id) === event.id) {
-        result = event;
-      }
-    });
-    return result;
-  }
-
   emitChange() {
     this.emit(EVENTS_UPDATED);
   }

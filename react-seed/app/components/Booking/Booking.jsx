@@ -28,7 +28,7 @@ export default class Booking extends React.Component {
   };
 
   render() {
-    var event = EventStore.find(this.props.match.params.eventId);
+    var event = EventStore.get(this.props.match.params.eventId);
 
     if (event == null) {
       return (<div className={styles.booking}></div>);

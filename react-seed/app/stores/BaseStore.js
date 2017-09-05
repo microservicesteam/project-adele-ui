@@ -1,30 +1,45 @@
-import { EventEmitter } from 'events';
+import {EventEmitter} from "events";
+import {forEach, toArray} from "lodash";
 
 export default class BaseStore extends EventEmitter {
 
   constructor(...args) {
     super(...args);
-    this.data = new Set([]);
+    this.data = {};
   }
 
   setAll(items) {
-    this.data = new Set(items);
+    var self = this;
+    forEach(items, function (item) {
+      if (item.hasOwnProperty("id")) {
+        self.data[item["id"]] = item;
+      }
+    });
     this.emitChange();
   }
 
   getAll() {
-    return Array.from(this.data);
+    return toArray(this.data);
+  }
+
+  get(id) {
+    if (this.data.hasOwnProperty(id)) {
+      return this.data[id];
+    }
+    return null;
   }
 
   set(item) {
-    if (!this.data.has(item)) {
-      this.data.add(item);
+    if (item.hasOwnProperty("id")) {
+      this.data[item["id"]] = item;
       this.emitChange();
     }
   }
 
-  remove(item) {
-    this.data.delete(item);
-    this.emitChange();
+  remove(id) {
+    if (this.data.hasOwnProperty(id)) {
+      delete this.data[id];
+      this.emitChange();
+    }
   }
 }
