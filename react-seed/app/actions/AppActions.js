@@ -1,10 +1,10 @@
 import AppDispatcher from "../dispatcher/AppDispatcher";
-import EventWebAPI from "../util/EventWebAPI";
-import {EVENTS_GET_ERROR, EVENTS_GET_SUCCESS} from "../constants/AppConstants";
+import WebAPI from "../util/WebAPI";
+import {EVENTS_GET_ERROR, EVENTS_GET_SUCCESS, VENUE_GET_SUCCESS, VENUE_GET_ERROR, SECTORS_GET_SUCCESS, SECTORS_GET_ERROR} from "../constants/AppConstants";
 
 export default {
   getEvents() {
-    EventWebAPI.getEvents()
+    WebAPI.getEvents()
     .then((response) => {
       AppDispatcher.dispatch({
         actionType: EVENTS_GET_SUCCESS,
@@ -16,5 +16,37 @@ export default {
         actionType: EVENTS_GET_ERROR
       });
     });
+  },
+  getVenue(event) {
+    WebAPI.getVenue(event)
+      .then((response) => {
+        // TODO tactical solution, for easy access from VenueStore
+        response.id = event.id;
+        AppDispatcher.dispatch({
+          actionType: VENUE_GET_SUCCESS,
+          venue: response
+        });
+      })
+      .catch(() => {
+        AppDispatcher.dispatch({
+          actionType: VENUE_GET_ERROR
+        });
+      });
+  },
+  getSectors(venue) {
+    WebAPI.getSectors(venue)
+      .then((response) => {
+        // TODO tactical solution, for easy access from SectorStore
+        response._embedded.sectors.id = venue.id;
+        AppDispatcher.dispatch({
+          actionType: SECTORS_GET_SUCCESS,
+          sectors: response._embedded.sectors
+        });
+      })
+      .catch(() => {
+        AppDispatcher.dispatch({
+          actionType: SECTORS_GET_ERROR
+        });
+      });
   }
 };

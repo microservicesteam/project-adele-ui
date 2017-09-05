@@ -11,13 +11,13 @@ Access-Control-Allow-Headers: X-Requested-With
   },
   "_links" : {
     "self" : {
-      "href" : "http://localhost:8080/rs/api/venues/2"
+      "href" : "http://localhost:9000/venues/2"
     },
     "venueDo" : {
-      "href" : "http://localhost:8080/rs/api/venues/2"
+      "href" : "http://localhost:9000/venues/2"
     },
     "sectors" : {
-      "href" : "http://localhost:8080/rs/api/venues/2/sectors"
+      "href" : "http://localhost:9000/venues/2/sectors"
     }
   }
 }

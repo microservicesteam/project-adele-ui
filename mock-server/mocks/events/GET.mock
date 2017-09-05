@@ -13,13 +13,13 @@ Access-Control-Allow-Headers: X-Requested-With
       "dateTime" : "2017-08-30T21:27:07.997",
       "_links" : {
         "self" : {
-          "href" : "http://localhost:8080/rs/api/events/1"
+          "href" : "http://localhost:9000/events/1"
         },
         "eventDo" : {
-          "href" : "http://localhost:8080/rs/api/events/1"
+          "href" : "http://localhost:9000/events/1"
         },
         "venue" : {
-          "href" : "http://localhost:8080/rs/api/events/1/venue"
+          "href" : "http://localhost:9000/events/1/venue"
         }
       }
     }, {
@@ -30,23 +30,23 @@ Access-Control-Allow-Headers: X-Requested-With
       "dateTime" : "2017-08-30T21:27:08.029",
       "_links" : {
         "self" : {
-          "href" : "http://localhost:8080/rs/api/events/2"
+          "href" : "http://localhost:9000/events/2"
         },
         "eventDo" : {
-          "href" : "http://localhost:8080/rs/api/events/2"
+          "href" : "http://localhost:9000/events/2"
         },
         "venue" : {
-          "href" : "http://localhost:8080/rs/api/events/2/venue"
+          "href" : "http://localhost:9000/events/2/venue"
         }
       }
     } ]
   },
   "_links" : {
     "self" : {
-      "href" : "http://localhost:8080/rs/api/events"
+      "href" : "http://localhost:9000/events"
     },
     "profile" : {
-      "href" : "http://localhost:8080/rs/api/profile/events"
+      "href" : "http://localhost:9000/profile/events"
     }
   },
   "page" : {
