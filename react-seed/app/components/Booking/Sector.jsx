@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 export default class Sector extends React.Component {
 
   onClick = () => {
-    this.props.setSelected(this.props.sector.id);
+    this.props.setSelected(this.props.sector);
   };
 
   render() {

@@ -70,7 +70,7 @@ export default class Booking extends React.Component {
         <Event event={this.state.event} />}
 
         {this.state.sectors != null &&
-          <SectorList sectors={this.state.sectors}/>}
+          <SectorList event={this.state.event} sectors={this.state.sectors}/>}
 
       </div>
     );

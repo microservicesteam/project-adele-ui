@@ -2,6 +2,7 @@ import styles from "./style/_SectorList.scss";
 import React from "react";
 import PropTypes from "prop-types";
 import Sector from "./Sector";
+import PositionTable from "./PositionTable";
 
 export default class SectorList extends React.Component {
 
@@ -12,9 +13,9 @@ export default class SectorList extends React.Component {
     };
   }
 
-  setSelected = (id) => {
+  setSelected = (sector) => {
     this.setState({
-      selected: id
+      selected: sector
     })
   };
 
@@ -26,14 +27,18 @@ export default class SectorList extends React.Component {
           {this.props.sectors.map((sector) =>
             <Sector key={'sector-' + sector.id}
                     sector={sector}
-                    selected={this.state.selected == sector.id}
+                    selected={this.state.selected == sector}
                     setSelected={this.setSelected}/>)}
         </div>
+
+        {this.state.selected != null &&
+        <PositionTable event={this.props.event} sector={this.state.selected}/>}
       </div>
     );
   }
 }
 
 SectorList.propTypes = {
+  event: PropTypes.any.isRequired,
   sectors: PropTypes.any.isRequired
 };

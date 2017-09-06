@@ -1,0 +1,32 @@
+.positionTable {
+  background: black;
+  width: 100%;
+  padding: 20px;
+  color: white;
+}
+
+.header {
+  font-size: 15px;
+}
+
+.legendItem {
+  font-size: 12px;
+  width: 10px;
+  height: 10px;
+}
+
+.legendText {
+  font-size: 12px;
+}
+
+.legendFree {
+  background: white;
+}
+
+.legendBooked {
+  background: #FF4136;
+}
+
+.legendSelected {
+  background: #0074D9;
+}
