@@ -6,7 +6,7 @@ Access-Control-Allow-Headers: X-Requested-With
 {
   "_embedded" : {
     "sectors" : [ {
-      "number": 1,
+      "id": 1,
       "capacity" : 5,
       "price" : {
         "amount" : 1500.00,

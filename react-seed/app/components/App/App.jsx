@@ -38,7 +38,7 @@ export default class App extends React.Component {
         <div className={styles.app}>
           <div className={styles.header}>
             <h1 className={styles.title}>Project Adele</h1>
-            <Menu events={this.state.events}/>
+            {/*<Menu events={this.state.events}/>*/}
           </div>
           <Switch>
             <Route exact={true} path="/" component={Home}/>

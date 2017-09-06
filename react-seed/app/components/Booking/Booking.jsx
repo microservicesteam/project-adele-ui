@@ -4,7 +4,7 @@ import AppActions from "../../actions/AppActions";
 import EventStore from "../../stores/EventStore";
 import VenueStore from "../../stores/VenueStore";
 import SectorStore from "../../stores/SectorStore";
-import Venue from "./Venue";
+import Header from "./Header";
 import Sector from "./Sector";
 
 export default class Booking extends React.Component {
@@ -60,24 +60,13 @@ export default class Booking extends React.Component {
   };
 
   render() {
-    var event = this.state.event;
-
-    if (event == null) {
-      return (<div className={styles.booking}></div>);
-    }
-
     return (
       <div className={styles.booking}>
-        <div>{event.id}</div>
-        <div>{event.name}</div>
-        <div>{event.dateTime}</div>
-        <div>{event.status}</div>
-
-        {this.state.venue != null &&
-        <Venue venue={this.state.venue} />}
+        {this.state.event != null &&
+        <Header event={this.state.event} venue={this.state.venue} />}
 
         {this.state.sectors != null &&
-          this.state.sectors.map((sector) => <Sector sector={sector} key={'sector-' + sector.number} />)}
+          this.state.sectors.map((sector) => <Sector sector={sector} key={'sector-' + sector.id} />)}
 
       </div>
     );

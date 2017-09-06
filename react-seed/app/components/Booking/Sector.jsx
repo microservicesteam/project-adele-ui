@@ -7,7 +7,7 @@ export default class Sector extends React.Component {
   render() {
     return (
       <div className={styles.sector}>
-        <div>{this.props.sector.number}</div>
+        <div>{this.props.sector.id}</div>
         <div>{this.props.sector.capacity}</div>
         <div>{this.props.sector.positions}</div>
       </div>
