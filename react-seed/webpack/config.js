@@ -47,7 +47,10 @@ var config = {
   ],
   plugins: plugins,
   resolve: {
-    extensions: ['', '.js', '.json', '.jsx']
+    extensions: ['', '.js', '.json', '.jsx'],
+    alias: {
+      'stompjs': __dirname + '/../node_modules/stompjs/lib/stomp.js',
+    }
   },
   devServer: {
     contentBase: path.resolve(pkg.config.buildDir),
