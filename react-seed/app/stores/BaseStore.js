@@ -1,5 +1,5 @@
 import {EventEmitter} from "events";
-import {forEach, toArray} from "lodash";
+import {forEach, toArray, find, filter} from "lodash";
 
 export default class BaseStore extends EventEmitter {
 
@@ -29,14 +29,16 @@ export default class BaseStore extends EventEmitter {
     return null;
   }
 
-  findBy(field, value) {
-    var result = undefined;
-    forEach(this.data, function (item) {
-      if (item.hasOwnProperty(field) && item[field] == value) {
-        result = item;
-      }
+  findFirstBy(field, value) {
+    return find(this.data, function (item) {
+      return item.hasOwnProperty(field) && item[field] === value;
     });
-    return result;
+  }
+
+  findAllBy(field, value) {
+    return filter(this.data, function (item) {
+      return item.hasOwnProperty(field) && item[field] === value;
+    });
   }
 
   set(item) {

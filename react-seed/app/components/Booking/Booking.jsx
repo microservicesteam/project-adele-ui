@@ -56,7 +56,7 @@ export default class Booking extends React.Component {
     this.setState({
       event: this.state.event,
       venue: this.state.venue,
-      sectors: SectorStore.get(this.state.venue.id)
+      sectors: SectorStore.findAllByVenue(this.state.venue)
     });
   };
 

@@ -4,6 +4,10 @@ import {SECTORS_UPDATED, SECTORS_GET_SUCCESS} from "../constants/AppConstants";
 
 class SectorStore extends BaseStore {
 
+  findAllByVenue(venue) {
+    return this.findAllBy("venueId", venue.id);
+  }
+
   emitChange() {
     this.emit(SECTORS_UPDATED);
   }
@@ -22,7 +26,7 @@ let store = new SectorStore();
 AppDispatcher.register((action) => {
   switch(action.actionType) {
     case SECTORS_GET_SUCCESS:
-      store.set(action.sectors);
+      store.setAll(action.sectors);
       break;
     default:
   }

@@ -5,7 +5,7 @@ import {VENUES_UPDATED, VENUE_GET_SUCCESS} from "../constants/AppConstants";
 class VenueStore extends BaseStore {
 
   findByEvent(event) {
-    return this.findBy("eventId", event.id);
+    return this.findFirstBy("eventId", event.id);
   }
 
   emitChange() {

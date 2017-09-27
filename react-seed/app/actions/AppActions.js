@@ -1,3 +1,4 @@
+import {forEach} from "lodash";
 import AppDispatcher from "../dispatcher/AppDispatcher";
 import WebAPI from "../util/WebAPI";
 import StompClient from "../util/StompClient";
@@ -46,8 +47,9 @@ export default {
   getSectors(venue) {
     WebAPI.getSectors(venue)
       .then((response) => {
-        // TODO tactical solution, for easy access from SectorStore
-        response._embedded.sectors.id = venue.id;
+        forEach(response._embedded.sectors, function (sector) {
+          sector.venueId = venue.id;
+        });
         AppDispatcher.dispatch({
           actionType: SECTORS_GET_SUCCESS,
           sectors: response._embedded.sectors

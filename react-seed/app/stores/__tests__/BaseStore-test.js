@@ -99,7 +99,7 @@ describe('BaseStore', () => {
     expect(store.get(2)).to.eql(item2);
   });
 
-  it('Should find requested item by specific field', function() {
+  it('Should find first requested item by specific field', function() {
 
     let store = new TestStore();
 
@@ -115,8 +115,33 @@ describe('BaseStore', () => {
     };
 
     store.setAll([item1, item2]);
-    expect(store.findBy("foo", "bar")).to.eql(item1);
-    expect(store.findBy("foo", "something else")).to.eql(item2);
-    expect(store.findBy("foo", "something something")).to.eql(undefined);
+    expect(store.findFirstBy("foo", "bar")).to.eql(item1);
+    expect(store.findFirstBy("foo", "something else")).to.eql(item2);
+    expect(store.findFirstBy("foo", "something something")).to.eql(undefined);
+  });
+
+  it('Should find all requested items by specific field', function() {
+
+    let store = new TestStore();
+
+    expect(store.getAll()).to.eql([]);
+
+    let item1 = {
+      id: 1,
+      foo: "bar"
+    };
+    let item2 = {
+      id: 2,
+      foo: "bar"
+    };
+    let item3 = {
+      id: 3,
+      foo: "something else"
+    };
+
+    store.setAll([item1, item2, item3]);
+    expect(store.findAllBy("foo", "bar")).to.eql([item1, item2]);
+    expect(store.findAllBy("foo", "something else")).to.eql([item3]);
+    expect(store.findAllBy("foo", "something something")).to.eql([]);
   });
 });
