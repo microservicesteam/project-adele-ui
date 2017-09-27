@@ -1,9 +1,9 @@
 import styles from "./style/_SectorList.scss";
 import React from "react";
 import PropTypes from "prop-types";
+import AppActions from "../../actions/AppActions";
 import Sector from "./Sector";
 import PositionTable from "./PositionTable";
-import { Stomp } from "stompjs";
 
 export default class SectorList extends React.Component {
 
@@ -12,17 +12,7 @@ export default class SectorList extends React.Component {
     this.state = {
       selected: null
     };
-
-    console.log("Connecting...");
-    this.socket = new WebSocket("ws://localhost:8080/ws");
-    this.client = Stomp.over(this.socket);
-    var client = this.client;
-    this.client.connect({}, function (frame) {
-      console.log('Connected: ' + frame);
-      client.subscribe('/topic/tickets', function (ticketEvent) {
-        console.log(ticketEvent);
-      });
-    });
+    AppActions.subscribeForTicketEvents();
   }
 
   setSelected = (sector) => {
