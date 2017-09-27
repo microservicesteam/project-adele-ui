@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: http://localhost:8000,
+Access-Control-Allow-Headers: X-Requested-With
+
+[{"position":{"eventId":1,"sectorId":1,"id":1},"status":"FREE"},
+{"position":{"eventId":1,"sectorId":1,"id":2},"status":"FREE"},
+{"position":{"eventId":1,"sectorId":1,"id":3},"status":"FREE"},
+{"position":{"eventId":1,"sectorId":1,"id":4},"status":"FREE"},
+{"position":{"eventId":1,"sectorId":1,"id":5},"status":"FREE"}]

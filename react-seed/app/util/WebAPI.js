@@ -1,12 +1,13 @@
 var request = require('superagent');
 
-var url = process.env.EVENTS_API_URL || "http://localhost:9000/events";
+var eventUrl = process.env.EVENTS_API_URL || "http://localhost:9000/events";
+var bookingUrl = process.env.EVENTS_API_URL || "http://localhost:9000/bookings";
 
 export default {
   getEvents() {
     return new Promise((resolve, reject) => {
       request
-          .get(url)
+          .get(eventUrl)
           .end(function (error, response) {
             if (error) {
               reject();
@@ -39,6 +40,22 @@ export default {
     return new Promise((resolve, reject) => {
       request
         .get(venue._links.sectors.href)
+        .end(function (error, response) {
+          if (error) {
+            reject();
+          }
+          if (response.status !== 200) {
+            reject();
+          } else {
+            resolve(JSON.parse(response.text));
+          }
+        });
+    });
+  },
+  getBookings(event) {
+    return new Promise((resolve, reject) => {
+      request
+        .get(bookingUrl + "?eventId=" + event.id)
         .end(function (error, response) {
           if (error) {
             reject();

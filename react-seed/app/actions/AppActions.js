@@ -1,7 +1,17 @@
 import AppDispatcher from "../dispatcher/AppDispatcher";
 import WebAPI from "../util/WebAPI";
 import StompClient from "../util/StompClient";
-import {EVENTS_GET_ERROR, EVENTS_GET_SUCCESS, VENUE_GET_SUCCESS, VENUE_GET_ERROR, SECTORS_GET_SUCCESS, SECTORS_GET_ERROR, TICKET_EVENT_RECEIVED} from "../constants/AppConstants";
+import {
+  EVENTS_GET_ERROR,
+  EVENTS_GET_SUCCESS,
+  VENUE_GET_SUCCESS,
+  VENUE_GET_ERROR,
+  SECTORS_GET_SUCCESS,
+  SECTORS_GET_ERROR,
+  BOOKINGS_GET_SUCCESS,
+  BOOKINGS_GET_ERROR,
+  TICKET_EVENT_RECEIVED
+} from "../constants/AppConstants";
 
 export default {
   getEvents() {
@@ -47,6 +57,20 @@ export default {
       .catch(() => {
         AppDispatcher.dispatch({
           actionType: SECTORS_GET_ERROR
+        });
+      });
+  },
+  getBookings(event) {
+    WebAPI.getBookings(event)
+      .then((response) => {
+        AppDispatcher.dispatch({
+          actionType: BOOKINGS_GET_SUCCESS,
+          bookings: response
+        });
+      })
+      .catch(() => {
+        AppDispatcher.dispatch({
+          actionType: BOOKINGS_GET_ERROR
         });
       });
   },

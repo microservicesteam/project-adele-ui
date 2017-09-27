@@ -7,12 +7,13 @@ import PositionTable from "./PositionTable";
 
 export default class SectorList extends React.Component {
 
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       selected: null
     };
     AppActions.subscribeForTicketEvents();
+    AppActions.getBookings(props.event);
   }
 
   setSelected = (sector) => {
