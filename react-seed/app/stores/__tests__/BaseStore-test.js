@@ -98,4 +98,25 @@ describe('BaseStore', () => {
     expect(store.get(1)).to.eql(item1);
     expect(store.get(2)).to.eql(item2);
   });
+
+  it('Should find requested item by specific field', function() {
+
+    let store = new TestStore();
+
+    expect(store.getAll()).to.eql([]);
+
+    let item1 = {
+      id: 1,
+      foo: "bar"
+    };
+    let item2 = {
+      id: 2,
+      foo: "something else"
+    };
+
+    store.setAll([item1, item2]);
+    expect(store.findBy("foo", "bar")).to.eql(item1);
+    expect(store.findBy("foo", "something else")).to.eql(item2);
+    expect(store.findBy("foo", "something something")).to.eql(undefined);
+  });
 });

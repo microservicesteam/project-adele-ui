@@ -4,6 +4,7 @@ Access-Control-Allow-Origin: http://localhost:8000,
 Access-Control-Allow-Headers: X-Requested-With
 
 {
+  "id": 2,
   "address" : "Another test venue address",
   "coordinates" : {
     "latitude" : 3.0,

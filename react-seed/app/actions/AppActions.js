@@ -31,8 +31,7 @@ export default {
   getVenue(event) {
     WebAPI.getVenue(event)
       .then((response) => {
-        // TODO tactical solution, for easy access from VenueStore
-        response.id = event.id;
+        response.eventId = event.id;
         AppDispatcher.dispatch({
           actionType: VENUE_GET_SUCCESS,
           venue: response

@@ -43,7 +43,7 @@ export default class Booking extends React.Component {
   };
 
   onVenuesChange = () => {
-    var venue = VenueStore.get(this.state.event.id);
+    var venue = VenueStore.findByEvent(this.state.event);
     this.setState({
       event: this.state.event,
       venue: venue,

@@ -29,6 +29,16 @@ export default class BaseStore extends EventEmitter {
     return null;
   }
 
+  findBy(field, value) {
+    var result = undefined;
+    forEach(this.data, function (item) {
+      if (item.hasOwnProperty(field) && item[field] == value) {
+        result = item;
+      }
+    });
+    return result;
+  }
+
   set(item) {
     if (item.hasOwnProperty("id")) {
       this.data[item["id"]] = item;
