@@ -5,13 +5,13 @@ import PropTypes from "prop-types";
 export default class Position extends React.Component {
 
   onClick = () => {
-    this.props.onClick(this.props.position);
+    this.props.onClick(this.props.position.position);
   };
 
   render() {
     return (
       <div className={[styles.position, this.props.selected ? styles.active : styles.inactive].join(' ')}
-           onClick={this.onClick}>{this.props.position}</div>
+           onClick={this.onClick}>{this.props.position.position}</div>
     );
   }
 }

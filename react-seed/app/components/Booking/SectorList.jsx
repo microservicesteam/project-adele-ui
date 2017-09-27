@@ -4,23 +4,56 @@ import PropTypes from "prop-types";
 import AppActions from "../../actions/AppActions";
 import Sector from "./Sector";
 import PositionTable from "./PositionTable";
+import BookingStore from "../../stores/PositionStore";
+import TicketEventStore from "../../stores/TicketEventStore";
 
 export default class SectorList extends React.Component {
 
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
       selected: null
     };
-    AppActions.subscribeForTicketEvents();
-    AppActions.getBookings(props.event);
   }
 
   setSelected = (sector) => {
     this.setState({
       selected: sector
-    })
+    });
+    // TODO reinitialize sector data when new selected
   };
+
+  componentWillMount() {
+    BookingStore.addChangeListener(this.onBookingsChange);
+
+    AppActions.subscribeForTicketEvents();
+    AppActions.getBookings(this.event);
+  }
+
+  componentWillUnmount() {
+    BookingStore.removeChangeListener(this.onBookingsChange);
+    TicketEventStore.removePushListener(this.onTicketEventPush);
+  }
+
+  componentWillReceiveProps(props) {
+    AppActions.getBookings(props.event);
+  }
+
+  onBookingsChange = () => {
+    TicketEventStore.addPushListener(this.onTicketEventPush);
+    this.onTicketEventPush();
+  };
+
+  onTicketEventPush = () => {
+    this.processTicketEvents();
+  };
+
+  processTicketEvents() {
+    var ticketEvent;
+    while(ticketEvent = TicketEventStore.shift() !== undefined) {
+      console.log(ticketEvent);
+    }
+  }
 
   render() {
     return (
