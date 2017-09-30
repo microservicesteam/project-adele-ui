@@ -4,7 +4,9 @@ import {forEach, filter} from "lodash";
 
 import {
   POSITIONS_UPDATED,
-  BOOKINGS_GET_SUCCESS
+  BOOKINGS_GET_SUCCESS,
+  TICKET_EVENT_RECEIVED,
+  POSITION_BOOKED
 } from '../constants/AppConstants';
 
 class PositionStore extends BaseStore {
@@ -15,19 +17,11 @@ class PositionStore extends BaseStore {
     });
   }
 
-  setAll(bookings) {
+  setAll(positions) {
     var self = this;
-    // TODO maybe we should do this outside?
-    forEach(bookings, function (booking) {
-      var position = booking.position;
-      var positionId = position.eventId + "-" + position.sectorId + "-" + position.id;
-      self.data[positionId] = {
-        id: positionId,
-        eventId: position.eventId,
-        sectorId: position.sectorId,
-        position: position.id,
-        status: booking.status
-      };
+    forEach(positions, function (position) {
+      position.id = self.getPositionId(position);
+      self.data[position.id] = position;
     });
     this.emitChange();
   }
@@ -43,14 +37,34 @@ class PositionStore extends BaseStore {
   removeChangeListener(callback) {
     this.removeListener(POSITIONS_UPDATED, callback);
   }
+
+  getPositionId(position) {
+    return position.eventId + "-" + position.sectorId + "-" + position.position
+  }
 }
 
 let store = new PositionStore();
 
 AppDispatcher.register((action) => {
+  var positions;
   switch(action.actionType) {
     case BOOKINGS_GET_SUCCESS:
-      store.setAll(action.bookings);
+      positions = [];
+      forEach(action.bookings, function (booking) {
+        booking.position.position = booking.position.id;
+        booking.position.status = booking.status;
+        positions.push(booking.position);
+      });
+      store.setAll(positions);
+      break;
+    case TICKET_EVENT_RECEIVED:
+      positions = [];
+      forEach(action.ticketEvent.positions, function (position) {
+        position.position = position.id;
+        position.status = POSITION_BOOKED;
+        positions.push(position);
+      });
+      store.setAll(positions);
       break;
     default:
   }

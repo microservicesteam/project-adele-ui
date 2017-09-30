@@ -79,7 +79,7 @@ export default {
     StompClient.subscribeForTicketEvents(function (ticketEvent) {
       AppDispatcher.dispatch({
         actionType: TICKET_EVENT_RECEIVED,
-        ticketEvent: ticketEvent
+        ticketEvent: JSON.parse(ticketEvent.body)
       });
     });
   }

@@ -11,10 +11,16 @@
   cursor: pointer;
 }
 
-.active {
+.free {
+  background: white;
+}
+
+.booked {
+  background: #FF4136;
+}
+
+.selected {
   background: #0074D9;
 }
 
-.inactive {
-  background: white;
-}
+
