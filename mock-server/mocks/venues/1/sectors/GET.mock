@@ -56,40 +56,6 @@ Access-Control-Allow-Headers: X-Requested-With
           "href" : "http://localhost:9000/sectors/3"
         }
       }
-    },
-    {
-      "id": 4,
-      "capacity" : 5,
-      "price" : {
-        "amount" : 4000.00,
-        "currency" : "HUF"
-      },
-      "positions" : [ 1, 2, 3, 4, 5 ],
-      "_links" : {
-        "self" : {
-          "href" : "http://localhost:9000/sectors/4"
-        },
-        "sectorDo" : {
-          "href" : "http://localhost:9000/sectors/4"
-        }
-      }
-    },
-    {
-      "id": 5,
-      "capacity" : 5,
-      "price" : {
-        "amount" : 6000.00,
-        "currency" : "HUF"
-      },
-      "positions" : [ 1, 2, 3, 4, 5 ],
-      "_links" : {
-        "self" : {
-          "href" : "http://localhost:9000/sectors/5"
-        },
-        "sectorDo" : {
-          "href" : "http://localhost:9000/sectors/5"
-        }
-      }
     }
     ]
   },

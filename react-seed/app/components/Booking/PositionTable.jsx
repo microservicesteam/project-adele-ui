@@ -7,9 +7,34 @@ import PositionStore from "../../stores/PositionStore";
 
 export default class PositionTable extends React.Component {
 
-  render() {
-    var positions = PositionStore.findByEventAndSector(this.props.event, this.props.sector);
+  constructor(args) {
+    super();
+    this.state = {
+      positions: PositionStore.findByEventAndSector(args.event, args.sector)
+    };
+  }
 
+  componentWillMount() {
+    PositionStore.addChangeListener(this.onChange);
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      positions: PositionStore.findByEventAndSector(props.event, props.sector)
+    });
+  }
+
+  componentWillUnmount() {
+    PositionStore.removeChangeListener(this.onChange);
+  }
+
+  onChange = () => {
+    this.setState({
+      positions: PositionStore.findByEventAndSector(this.props.event, this.props.sector)
+    });
+  };
+
+  render() {
     return (
       <div className={styles.positionTable}>
         <div className={styles.header}>Positions for Sector {this.props.sector.id}</div>
@@ -19,7 +44,7 @@ export default class PositionTable extends React.Component {
         <div><span className={[styles.legendSelected, styles.legendItem].join(' ')}>&nbsp;&nbsp;&nbsp;&nbsp;</span><span className={styles.legendText}> selected by you</span></div>
         <hr/>
         <div>
-          {positions.map((position) =>
+          {this.state.positions.map((position) =>
             <Position key={'position-' + position.position}
                       position={position}/>)}
         </div>
