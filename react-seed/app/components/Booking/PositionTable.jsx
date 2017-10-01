@@ -33,18 +33,6 @@ export default class PositionTable extends React.Component {
     })
   };
 
-  onPositionClick = (position) => {
-    if (includes(this.state.selected, position)) {
-      pull(this.state.selected, position);
-    } else {
-      this.state.selected.push(position);
-    }
-
-    this.setState({
-      selected: this.state.selected
-    })
-  };
-
   render() {
     return (
       <div className={styles.positionTable}>
@@ -58,8 +46,7 @@ export default class PositionTable extends React.Component {
           {this.state.positions.map((position) =>
             <Position key={'position-' + position.position}
                       position={position}
-                      selected={includes(this.state.selected, position.position)}
-                      onClick={this.onPositionClick}/>)}
+                      selected={includes(this.state.selected, position.position)}/>)}
         </div>
       </div>
     );
