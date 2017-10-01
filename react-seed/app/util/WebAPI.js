@@ -1,7 +1,7 @@
 var request = require('superagent');
 
 var eventUrl = process.env.EVENTS_API_URL || "http://localhost:9000/events";
-var bookingUrl = process.env.EVENTS_API_URL || "http://localhost:9000/bookings";
+var bookingUrl = process.env.EVENTS_API_URL || "http://localhost:8080/bookings";
 
 export default {
   getEvents() {

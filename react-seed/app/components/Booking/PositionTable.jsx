@@ -19,6 +19,10 @@ export default class PositionTable extends React.Component {
     };
   }
 
+  componentWillUnmount() {
+    PositionStore.removeChangeListener(this.onPositionsChange);
+  }
+
   onPositionsChange = () => {
     var self = this;
     this.setState({
