@@ -18,14 +18,15 @@ export default class SectorList extends React.Component {
     this.setState({
       selected: sector
     });
-    // TODO reinitialize sector data when new selected
   };
 
   componentWillMount() {
     AppActions.subscribeForTicketEvents();
-    AppActions.getBookings(this.event);
   }
 
+  componentWillUnmount() {
+    // TODO close connection
+  }
 
   componentWillReceiveProps(props) {
     AppActions.getBookings(props.event);

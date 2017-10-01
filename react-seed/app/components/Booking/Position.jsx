@@ -6,6 +6,12 @@ import PositionStore from "../../stores/PositionStore";
 
 export default class Position extends React.Component {
 
+  componentWillReceiveProps(props) {
+    this.setState({
+      status: props.position.status
+    });
+  }
+
   onClick = () => {
     var position = this.props.position;
     if (position.status == POSITION_FREE) {
@@ -14,6 +20,9 @@ export default class Position extends React.Component {
       position.status = POSITION_FREE;
     }
     PositionStore.set(position);
+    this.setState({
+      status: position.status
+    });
   };
 
   render() {
@@ -30,7 +39,5 @@ export default class Position extends React.Component {
 }
 
 Position.propTypes = {
-  position: PropTypes.any.isRequired,
-  selected: PropTypes.any.isRequired,
-  onClick: PropTypes.any.isRequired
+  position: PropTypes.any.isRequired
 };
