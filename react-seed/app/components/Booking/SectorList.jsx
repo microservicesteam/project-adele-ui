@@ -20,18 +20,10 @@ export default class SectorList extends React.Component {
     });
   };
 
-  componentWillMount() {
-    AppActions.subscribeForTicketEvents();
-  }
-
-  componentWillUnmount() {
-    // TODO close connection
-  }
-
   componentWillReceiveProps(props) {
     AppActions.getBookings(props.event);
   }
-
+  
   render() {
     return (
       <div>

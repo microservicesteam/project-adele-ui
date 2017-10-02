@@ -20,6 +20,7 @@ export default class Booking extends React.Component {
   }
 
   componentWillMount() {
+    AppActions.subscribeForTicketEvents();
     EventStore.addChangeListener(this.onEventsChange);
     VenueStore.addChangeListener(this.onVenuesChange);
     SectorStore.addChangeListener(this.onSectorsChange);
@@ -27,6 +28,7 @@ export default class Booking extends React.Component {
   }
 
   componentWillUnmount() {
+    // TODO unsubscribe from TicketEvents
     EventStore.removeChangeListener(this.onEventsChange);
     VenueStore.removeChangeListener(this.onVenuesChange);
     SectorStore.removeChangeListener(this.onSectorsChange);
