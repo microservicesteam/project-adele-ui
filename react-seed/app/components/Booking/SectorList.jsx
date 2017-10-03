@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import AppActions from "../../actions/AppActions";
 import Sector from "./Sector";
 import PositionTable from "./PositionTable";
+import BookingRequestButton from "./BookingRequestButton";
 
 export default class SectorList extends React.Component {
 
@@ -23,7 +24,7 @@ export default class SectorList extends React.Component {
   componentWillReceiveProps(props) {
     AppActions.getBookings(props.event);
   }
-  
+
   render() {
     return (
       <div>
@@ -38,6 +39,9 @@ export default class SectorList extends React.Component {
 
         {this.state.selected != null &&
         <PositionTable event={this.props.event} sector={this.state.selected}/>}
+
+        {this.state.selected != null &&
+        <BookingRequestButton event={this.props.event} sector={this.state.selected} />}
       </div>
     );
   }

@@ -11,6 +11,8 @@ import {
   SECTORS_GET_ERROR,
   BOOKINGS_GET_SUCCESS,
   BOOKINGS_GET_ERROR,
+  BOOKING_REQUEST_SUCCESS,
+  BOOKING_REQUEST_ERROR,
   TICKET_EVENT_RECEIVED
 } from "../constants/AppConstants";
 
@@ -72,6 +74,20 @@ export default {
       .catch(() => {
         AppDispatcher.dispatch({
           actionType: BOOKINGS_GET_ERROR
+        });
+      });
+  },
+  sendBookingRequest(event, sector, positions) {
+    WebAPI.sendBookingRequest(event, sector, positions)
+      .then((response) => {
+        AppDispatcher.dispatch({
+          actionType: BOOKING_REQUEST_SUCCESS,
+          response: response
+        });
+      })
+      .catch(() => {
+        AppDispatcher.dispatch({
+          actionType: BOOKING_REQUEST_ERROR
         });
       });
   },

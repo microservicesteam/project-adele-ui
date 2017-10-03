@@ -1,0 +1,26 @@
+.container {
+  background: black;
+  padding: 20px;
+  color: white;
+}
+
+.button {
+  width: 250px;
+  height: 40px;
+  background-color: #111111;
+  border: 2px solid #FFFFFF;
+  border-radius: 0;
+  color: #FFFFFF;
+  font-size: 17px;
+  cursor: pointer !important;
+  outline: none;
+}
+
+.button:hover{
+  background-color:#333333;
+}
+
+.button:disabled {
+  opacity: 0.4;
+  background: #111111;
+}

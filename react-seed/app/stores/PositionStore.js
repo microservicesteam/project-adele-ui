@@ -6,7 +6,8 @@ import {
   POSITIONS_UPDATED,
   BOOKINGS_GET_SUCCESS,
   TICKET_EVENT_RECEIVED,
-  POSITION_BOOKED
+  POSITION_BOOKED,
+  POSITION_SELECTED
 } from '../constants/AppConstants';
 
 class PositionStore extends BaseStore {
@@ -15,6 +16,12 @@ class PositionStore extends BaseStore {
     return filter(this.getAll(), function (item) {
       return item.eventId === event.id && item.sectorId === sector.id;
     });
+  }
+
+  getSelectedPositions(event, sector) {
+    return filter(this.findByEventAndSector(event, sector), function (item) {
+      return item.status === POSITION_SELECTED;
+    })
   }
 
   setAll(positions) {

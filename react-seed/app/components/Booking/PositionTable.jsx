@@ -8,7 +8,7 @@ import PositionStore from "../../stores/PositionStore";
 export default class PositionTable extends React.Component {
 
   constructor(args) {
-    super();
+    super(args);
     this.state = {
       positions: PositionStore.findByEventAndSector(args.event, args.sector)
     };

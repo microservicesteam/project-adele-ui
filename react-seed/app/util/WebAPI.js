@@ -67,5 +67,26 @@ export default {
           }
         });
     });
+  },
+  sendBookingRequest(event, sector, positions) {
+    return new Promise((resolve, reject) => {
+      request
+        .post(bookingUrl)
+        .send({
+          eventId: event.id,
+          sectorId: sector.id,
+          positions: positions
+        })
+        .end(function (error, response) {
+          if (error) {
+            reject();
+          }
+          if (response.status !== 200) {
+            reject();
+          } else {
+            resolve(JSON.parse(response.text));
+          }
+        });
+    });
   }
 };
