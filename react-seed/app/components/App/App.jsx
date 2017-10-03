@@ -3,10 +3,10 @@ import React from "react";
 import {HashRouter, Route, Switch} from "react-router-dom";
 import AppActions from "../../actions/AppActions";
 import EventStore from "../../stores/EventStore";
-import Menu from "../Menu/Menu";
 import Home from "../Home/Home";
 import Booking from "../Booking/Booking";
 import Footer from "../Footer/Footer";
+import Flash from "../Flash/Flash";
 
 export default class App extends React.Component {
 
@@ -38,8 +38,8 @@ export default class App extends React.Component {
         <div className={styles.app}>
           <div className={styles.header}>
             <h1 className={styles.title}>Project Adele</h1>
-            {/*<Menu events={this.state.events}/>*/}
           </div>
+          <Flash />
           <Switch>
             <Route exact={true} path="/" component={Home}/>
             <Route path="/booking/:eventId" component={Booking} />}/>
