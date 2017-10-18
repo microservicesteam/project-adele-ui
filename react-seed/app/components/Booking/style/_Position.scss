@@ -1,0 +1,26 @@
+.position {
+  display:inline-block;
+  width: 30px;
+  clear: both;
+  margin: 10px 1% 10px 0;
+  vertical-align: top;
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.free {
+  background: white;
+}
+
+.booked {
+  background: #FF4136;
+}
+
+.selected {
+  background: #0074D9;
+}
+
+

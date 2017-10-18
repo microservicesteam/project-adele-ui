@@ -1,0 +1,19 @@
+@import "toolkit";
+
+.app {
+  font-size: inherit;
+  max-width: 1280px;
+  margin: auto;
+  @include my-padding-mixin(20px);
+}
+
+.header {
+  font-size: inherit;
+  padding: 20px;
+}
+
+.title {
+  border-bottom: 1px solid $border-color;
+  margin: 0 0 20px 0;
+  padding-bottom: 20px;
+}

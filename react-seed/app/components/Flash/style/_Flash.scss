@@ -1,0 +1,18 @@
+.flash {
+  position: fixed;
+  top: 0;
+  z-index: 101;
+  left: 0;
+  right: 0;
+  text-align: center;
+  line-height: 2.5;
+  overflow: hidden;
+}
+
+.success {
+  background: #2ECC40;
+}
+
+.error {
+  background: #FF4136;
+}

@@ -1,0 +1,58 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: http://localhost:8000,
+Access-Control-Allow-Headers: X-Requested-With
+
+{
+  "_embedded" : {
+    "events" : [ {
+      "id": 1,
+      "name" : "Adele",
+      "description" : "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur non augue et nisi porttitor pretium. Mauris vel neque vitae orci luctus aliquet. Nulla facilisi. Donec in mi.",
+      "status" : "OPEN",
+      "dateTime" : "2017-08-30T21:27:07.997",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:9000/events/1"
+        },
+        "eventDo" : {
+          "href" : "http://localhost:9000/events/1"
+        },
+        "venue" : {
+          "href" : "http://localhost:9000/events/1/venue"
+        }
+      }
+    }, {
+      "id": 2,
+      "name" : "Tiesto",
+      "description" : "Curabitur semper massa quis diam. Ut dignissim elit at nisi. Mauris nec ipsum. Nunc ac quam. Donec in diam. Phasellus tempus scelerisque justo.",
+      "status" : "CLOSED",
+      "dateTime" : "2017-08-30T21:27:08.029",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:9000/events/2"
+        },
+        "eventDo" : {
+          "href" : "http://localhost:9000/events/2"
+        },
+        "venue" : {
+          "href" : "http://localhost:9000/events/2/venue"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:9000/events"
+    },
+    "profile" : {
+      "href" : "http://localhost:9000/profile/events"
+    }
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 2,
+    "totalPages" : 1,
+    "number" : 0
+  }
+}

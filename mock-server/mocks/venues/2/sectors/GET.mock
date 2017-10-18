@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: http://localhost:8000,
+Access-Control-Allow-Headers: X-Requested-With
+
+{
+  "_embedded" : {
+    "sectors" : [ ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:9000/venues/2/sectors"
+    }
+  }
+}

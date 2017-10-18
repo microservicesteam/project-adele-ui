@@ -1,0 +1,23 @@
+{
+  "name": "project-adele-ui-server",
+  "version": "0.0.0",
+  "description": "Project Adele UI Mock Server",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": "Balázs Szögi",
+  "private": true,
+  "license": "BSD",
+  "dependencies": {
+    "express": "latest",
+    "socket.io": "latest",
+    "mocha": "latest",
+    "should": "latest",
+     "mockserver": "latest"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha -R spec"
+  }
+}
