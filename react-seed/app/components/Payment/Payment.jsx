@@ -29,13 +29,13 @@ export default class Payment extends React.Component {
           <div className={styles.formRow}>
             <div>Name:</div>
             <div>
-              <input className={styles.input} type="text" name="name" value={this.state.name} size="50" onChange={this.onNameChange.bind(this)}/>
+              <input className={styles.input} type="text" required="required" name="name" value={this.state.name} size="50" onChange={this.onNameChange.bind(this)}/>
             </div>
           </div>
           <div className={styles.formRow}>
             <div>Email:</div>
             <div>
-              <input className={styles.input} type="text" name="email" value={this.state.email} size="50" onChange={this.onEmailChange.bind(this)}/>
+              <input className={styles.input} type="email" required="required" name="email" value={this.state.email} size="50" onChange={this.onEmailChange.bind(this)}/>
             </div>
           </div>
           <div className={styles.formRow}>
