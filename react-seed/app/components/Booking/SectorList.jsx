@@ -21,8 +21,8 @@ export default class SectorList extends React.Component {
     });
   };
 
-  componentWillReceiveProps(props) {
-    AppActions.getBookings(props.event);
+  componentWillMount() {
+    AppActions.getBookings(this.props.event);
   }
 
   render() {
